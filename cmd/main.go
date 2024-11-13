@@ -6,6 +6,7 @@ import (
 
 	"github.com/danielmarioreynaldi/api-gateway/config"
 	"github.com/danielmarioreynaldi/api-gateway/http"
+	"github.com/danielmarioreynaldi/api-gateway/internal"
 )
 
 func main() {
@@ -14,6 +15,8 @@ func main() {
 
 	fmt.Println("Hello, world!")
 	httpServer := http.NewHttpServer(cfg.HttpConfigs)
+
+	httpServer.Router.HandleFunc("/", internal.Dummy)
 
 	go httpServer.Start()
 	defer httpServer.Stop()

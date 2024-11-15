@@ -49,4 +49,6 @@ func (h *HttpServer) Stop() {
 	if err != nil {
 		log.Fatal("Failed to shutdown HTTP server")
 	}
+
+	log.Print("Successfully shutdown HTTP server")
 }
